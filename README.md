@@ -8,14 +8,14 @@ None
 
 ## Usage
 
-```
+```python
 from pathlib import Path
 from provide_dir import provide_dir
 
 needed_path = Path("/path/to/directory/with/subdirectories")
 
 try:
-    was_created = provide_path(p)
+    was_created = provide_path(needed_path)
     if was_created:
         print(f"{needed_path} was successfully created")
     else:
