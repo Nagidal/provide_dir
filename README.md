@@ -27,3 +27,15 @@ pip install provide_dir
 ### Developer's Installation
 
 You can clone the repository and install it with `pip install -e /path/to/local/repository`.
+
+## Test dependencies
+
+To run the tests you will need
+
+* [pytest][pytest]
+* [remove_directory][remove_directory]
+* [re_patterns][re_patterns]
+
+[pytest]: https://pypi.org/project/pytest/
+[remove_directory]: https://pypi.org/project/remove-directory/
+[re_patterns]: https://pypi.org/project/re-patterns/

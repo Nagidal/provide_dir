@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.1 (2022-04-13)
+
+### Improvements
+* Better readme
+* Added unit tests
+
 ## v0.1.0 (2022-04-13)
 
 ### New Features
