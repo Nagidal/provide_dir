@@ -1,6 +1,6 @@
 # provide_directory
 
-Function to create the given path, including potential parent directories. Returns a bool if at leas one directory as been created.
+Function to create the given path, including potential parent directories. Writes to the provided sink (e.g. `print`) whether the directory was created or whether it already existed.
 
 ## Dependencies
 
@@ -13,15 +13,7 @@ from pathlib import Path
 from provide_dir import provide_dir
 
 needed_path = Path("/path/to/directory/with/subdirectories")
-
-try:
-    was_created = provide_path(needed_path)
-    if was_created:
-        print(f"{needed_path} was successfully created")
-    else:
-        print(f"{needed_path} already exists")
-except FileExistsError:
-    print(f"Cannot create {needed_path} because it already exists as a file")
+provide_dir(needed_path, print)
 ```
 
 ## Installation

@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
 
-from remove_directory import version
+from provide_dir import version
 from datetime import date
 from pathlib import Path
+from typing import Callable
+from typing import Optional
 
 
 __author__ = "Sven Siegmund"
@@ -15,7 +17,7 @@ __version__ = version.version
 __repository__ = "https://github.com/Nagidal/provide_dir"
 
 
-def provide_dir(directory: Path) -> bool:
+def core_provide_dir(directory: Path) -> bool:
     """
     Checks if `directory` already exists.
     If not, it will try to create one.
@@ -38,3 +40,23 @@ def provide_dir(directory: Path) -> bool:
             except FileExistsError:
                 raise
     return created_something
+
+
+def provide_dir(path: Path, sink: Optional[Callable[[str], None]] = None) -> None:
+    """
+    A wrapper for `_provide_dir` which outputs information
+    into the sink (usually some sort of logger, or print (partial) function)
+    """
+    was_created = core_provide_dir(path)
+    try:
+        if was_created:
+            if sink:
+                sink(f"{str(path)} was created")
+        else:
+            if sink:
+                sink(f"{str(path)} already exists")
+    except FileExistsError:
+        # This means that the parent path to the file cannot
+        # be created because a part of it already exists
+        # as a file
+        raise
