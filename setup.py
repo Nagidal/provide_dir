@@ -65,7 +65,7 @@ setup(
         "Operating System :: POSIX :: Linux",
         "Operating System :: MacOS :: MacOS X",
     ],
-    keywords="rmdir, remove dir, remove directory, recursive",
+    keywords="mkdir, make dir, make directory, recursive",
     package_dir={"": package_dir},
     packages=find_packages(where=package_dir),
     package_data={

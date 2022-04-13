@@ -1,6 +1,9 @@
 # Changelog
 
-## v0.1.1 (2022-04-13)
+## v0.1.2 (2022-04-13)
+
+### Improvements
+* Correct keywords in setup.py
 
 ### Improvements
 * Better readme
